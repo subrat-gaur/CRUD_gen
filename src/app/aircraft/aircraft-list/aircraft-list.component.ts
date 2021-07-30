@@ -36,7 +36,7 @@ export class AircraftListComponent implements OnInit {
   {
     if (this.lastclickedrow)
     {
-      this._AircraftComponentStore.SelectAircraft(this.lastclickedrow.id);
+      this._AircraftComponentStore.SelectAircraftId(this.lastclickedrow.id);
     }
 
   }

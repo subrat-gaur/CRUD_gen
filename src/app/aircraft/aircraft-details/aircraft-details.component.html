@@ -11,13 +11,108 @@
   <!-- <mat-divider></mat-divider> -->
   <mat-card-content>
   <div margin-left:8px>
-    <form >
-      <ng-container *ngFor="let column of columnsToDisplay">
-        <mat-form-field appearance="fill" margin = "5px">
-          <mat-label>{{column}}</mat-label>
-          <input matInput matTooltip="Enter {{column}}">
-        </mat-form-field>
-      </ng-container>
+    <form class="form-container" [formGroup] = "_AircraftForm">
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Aircraft ID</mat-label>
+        <input matInput matTooltip="Enter Aircraft ID"
+               formControlName="AircraftID">
+        <mat-error *ngIf="_AircraftForm.controls.AircraftID.touched && _AircraftForm.controls.AircraftID">
+          <span *ngIf="_AircraftForm.controls.AircraftID.errors">This field is mandatory.</span>
+          <!-- <span *ngIf="_AircraftForm.controls.AircraftID.errors.pattern">This field is invalid.</span> -->
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Registration Number</mat-label>
+        <input matInput matTooltip="Enter Registration Number"
+               formControlName="RegistrationNumber">
+        <mat-error *ngIf="_AircraftForm.controls.RegistrationNumber.errors && _AircraftForm.controls.RegistrationNumber">
+          <span *ngIf="_AircraftForm.controls.RegistrationNumber.errors">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>IATA Code</mat-label>
+        <input matInput matTooltip="Enter IATA Code"
+               formControlName="TypeIATACode">
+        <mat-error *ngIf="_AircraftForm.controls.TypeIATACode.errors && _AircraftForm.controls.TypeIATACode">
+          <span *ngIf="_AircraftForm.controls.TypeIATACode.errors">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Aircraft Name</mat-label>
+        <input matInput matTooltip="Enter Aircraft Name"
+               formControlName="AircraftName">
+        <mat-error *ngIf="_AircraftForm.controls.AircraftName.errors && _AircraftForm.controls.AircraftName">
+          <span *ngIf="_AircraftForm.controls.AircraftName.errors">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Ownership Type </mat-label>
+        <input matInput matTooltip="Enter Ownership Type"
+               formControlName="ownershipTypeCode">
+               <mat-error *ngIf="_AircraftForm.controls.ownershipTypeCode.errors && _AircraftForm.controls.ownershipTypeCode">
+                <span *ngIf="_AircraftForm.controls.ownershipTypeCode.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Aircraft Owner </mat-label>
+        <input matInput matTooltip="Enter Aircraft Owner"
+               formControlName="aircraftOwner">
+               <mat-error *ngIf="_AircraftForm.controls.aircraftOwner.errors && _AircraftForm.controls.aircraftOwner">
+                <span *ngIf="_AircraftForm.controls.aircraftOwner.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Serial Number</mat-label>
+        <input matInput matTooltip="Enter Serial Number"
+               formControlName="serialNumber">
+               <mat-error *ngIf="_AircraftForm.controls.serialNumber.errors && _AircraftForm.controls.serialNumber">
+                <span *ngIf="_AircraftForm.controls.serialNumber.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Engine Manufacturer</mat-label>
+        <input matInput matTooltip="Enter Engine Manufacturer"
+               formControlName="engineManufacturer">
+               <mat-error *ngIf="_AircraftForm.controls.engineManufacturer.errors && _AircraftForm.controls.engineManufacturer">
+                <span *ngIf="_AircraftForm.controls.engineManufacturer.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Engine Model</mat-label>
+        <input matInput matTooltip="Enter Engine Model"
+               formControlName="engineModel">
+               <mat-error *ngIf="_AircraftForm.controls.engineModel.errors && _AircraftForm.controls.engineModel">
+                <span *ngIf="_AircraftForm.controls.engineModel.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Aircraft Weight</mat-label>
+        <input matInput matTooltip="Enter Aircraft Weight"
+               formControlName="AircraftWeight">
+               <mat-error *ngIf="_AircraftForm.controls.AircraftWeight.errors && _AircraftForm.controls.AircraftWeight">
+                <span *ngIf="_AircraftForm.controls.AircraftWeight.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" margin = "5px">
+        <mat-label>Remarks</mat-label>
+        <input matInput matTooltip="Enter Remarks"
+               formControlName="remarks">
+               <mat-error *ngIf="_AircraftForm.controls.remarks.errors && _AircraftForm.controls.remarks">
+                <span *ngIf="_AircraftForm.controls.remarks.errors">This field is mandatory.</span>
+              </mat-error>
+            </mat-form-field>
+
     </form>
   </div>
 </mat-card-content>

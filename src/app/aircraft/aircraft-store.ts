@@ -36,10 +36,10 @@ export class AircraftComponentStore extends ComponentStore<AircraftComponentsSta
   readonly loadAircrafts = this.updater((state, Aircrafts: Aircraft[] | null) => ({
     ...state, Aircrafts: Aircrafts || [] }));
 
-  readonly SelectAircraft = this.updater((state, _selectAircraft: number)  => ({
+  readonly SelectAircraftId = this.updater((state, _selectAircraft: number)  => ({
     ...state, selectedid: _selectAircraft }));
 
-  readonly setEditedPerson = this.updater((state, editedAircraft: Aircraft | undefined) => ({
+  readonly setEditedAircraft = this.updater((state, editedAircraft: Aircraft | undefined) => ({
     ...state, editedAircraft }));
 
 }

@@ -17,7 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { AircraftComponentStore } from './aircraft-store';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AircraftSearchComponent,
@@ -32,6 +32,7 @@ import { AircraftComponentStore } from './aircraft-store';
     MatTableModule,
     MatFormFieldModule, MatInputModule, MatTooltipModule, MatButtonModule,MatDividerModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
     AircraftRoutingModule
   ],
   providers: [AircraftComponentStore],
