@@ -1,0 +1,22 @@
+<mat-card  >
+  <mat-card-header>
+    <mat-card-title>List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table  width = 100% mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row
+          (click)="lastclickedrow = row; RowClicked()"
+          [class.demo-row-is-clicked]="lastclickedrow == row"
+          *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+      <ng-container *ngFor="let column of columnsToDisplay">
+        <ng-container matColumnDef = {{column}}>
+          <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+          <td mat-cell *matCellDef="let table"> {{table[column]}} </td>
+        </ng-container>
+      </ng-container>
+    </table>
+  </mat-card-content>
+</mat-card>

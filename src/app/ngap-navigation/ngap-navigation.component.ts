@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import  {Router, RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-ngap-navigation',
@@ -16,6 +17,9 @@ export class NgapNavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+
+  constructor(private breakpointObserver: BreakpointObserver, public router:Router ) {
+
+  }
 
 }

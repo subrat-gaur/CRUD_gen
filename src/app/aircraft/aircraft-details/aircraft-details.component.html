@@ -1,0 +1,25 @@
+<div >
+<mat-card width=100% >
+  <mat-card-header color="Primary">
+    <mat-card-title>Detail</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">New</button>
+    <button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button color="primary">Save</button>
+  </mat-card-actions>
+  <!-- <mat-divider></mat-divider> -->
+  <mat-card-content>
+  <div margin-left:8px>
+    <form >
+      <ng-container *ngFor="let column of columnsToDisplay">
+        <mat-form-field appearance="fill" margin = "5px">
+          <mat-label>{{column}}</mat-label>
+          <input matInput matTooltip="Enter {{column}}">
+        </mat-form-field>
+      </ng-container>
+    </form>
+  </div>
+</mat-card-content>
+</mat-card>
+</div>
