@@ -8,18 +8,19 @@
     <button mat-raised-button color="primary">Edit</button>
     <button mat-raised-button color="primary">Save</button>
   </mat-card-actions>
-  <!-- <mat-divider></mat-divider> -->
+
   <mat-card-content>
   <div margin-left:8px>
+  <!-- Set the container to the Aircraft Observable property of the class -->
     <ng-container *ngIf="(DisplayAircraft$ | async); let DisplayAircraft">
-    <form class="form-container" [formGroup] = "_AircraftForm">
+    <!-- Set the for Container to the form built in the class -->
+      <form class="form-container" [formGroup] = "_AircraftForm">
 
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Aircraft ID</mat-label>
         <input matInput matTooltip="Enter Aircraft ID" formControlName="AircraftID" [(ngModel)]="DisplayAircraft.id" (ngModelChange)="AircraftEdited()">
         <mat-error *ngIf="_AircraftForm.controls.AircraftID.touched && _AircraftForm.controls.AircraftID">
           <span *ngIf="_AircraftForm.controls.AircraftID.errors">This field is mandatory.</span>
-          <!-- <span *ngIf="_AircraftForm.controls.AircraftID.errors.pattern">This field is invalid.</span> -->
         </mat-error>
       </mat-form-field>
 
@@ -126,7 +127,7 @@
         <mat-label>Aircraft Weight</mat-label>
         <input matInput matTooltip="Enter Aircraft Weight"
                formControlName="AircraftWeight"
-               [(ngModel)]="DisplayAircraft.weight"
+               [(ngModel)]="DisplayAircraft.AircraftWeight"
                (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.AircraftWeight.errors && _AircraftForm.controls.AircraftWeight">
                 <span *ngIf="_AircraftForm.controls.AircraftWeight.errors">This field is mandatory.</span>

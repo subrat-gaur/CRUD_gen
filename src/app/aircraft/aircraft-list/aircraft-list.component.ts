@@ -16,8 +16,9 @@ export class AircraftListComponent implements OnInit {
               private readonly _AircraftComponentStore :  AircraftComponentStore) {}
 
   Aircraft$ = this._AircraftComponentStore.Aircrafts$;
+
   columnsToDisplay = Object.keys(new AircraftSearchResults());
-  clickedRows = new Set<Aircraft>();
+
   lastclickedrow: AircraftClass = new AircraftClass();
 
   ngOnInit(): void {}
@@ -28,7 +29,7 @@ export class AircraftListComponent implements OnInit {
     {
       this._AircraftComponentStore.setEditorId(this.lastclickedrow.id);
       this._AircraftComponentStore.setEditedAircraft(this.lastclickedrow);
-      console.log(this.lastclickedrow);
+
 
     }
 

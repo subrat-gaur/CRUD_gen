@@ -12,7 +12,7 @@ export interface Aircraft {
    engineManufacturer: string;
    engineModel: string;
    remarks: string;
-   weight: string;
+   AircraftWeight: string;
 }
 
 export class AircraftClass {
@@ -27,7 +27,7 @@ export class AircraftClass {
   public engineManufacturer: string= '';
   public engineModel: string= '';
   public remarks: string= '';
-  public weight: string= '';
+  public AircraftWeight: string= '';
 }
 
 export class AircraftSearch

@@ -16,9 +16,10 @@ export class AircraftDetailsComponent implements OnInit {
                 private fb : FormBuilder
     ) { }
 
-  DisplayedAircraftId$ = this._AircraftComponentStore.editedAircraft$;
+// set the display aircraft to the observable of the selected aircraft from the store
   DisplayAircraft$ = this._AircraftComponentStore.editedAircraft$;
 
+  //Define the Form Builder for the  Form
   _AircraftForm = this.fb.group({
     AircraftID : [null, [Validators.required]],
     RegistrationNumber : [null, [Validators.required]],
@@ -38,6 +39,7 @@ export class AircraftDetailsComponent implements OnInit {
 
   }
 
+  // update the Aircraft changes in to the Store
   AircraftEdited() {
     this._AircraftComponentStore.setEditedAircraft(this.DisplayAircraft$);
   }

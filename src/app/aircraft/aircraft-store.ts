@@ -51,9 +51,9 @@ export class AircraftComponentStore
 
   readonly Aircrafts$ = this.select(({ Aircrafts }) => Aircrafts);
   readonly editorId$ = this.select(({ editorId }) => editorId);
-  readonly editedAircraft$ = this.select(({ editedAircraft }) => editedAircraft).pipe(
-    tap((_aircraft) => console.log('editedAircraft$', _aircraft))
-  );
+  readonly editedAircraft$ = this.select(({ editedAircraft }) => editedAircraft)
+  // .pipe(tap((_aircraft) => console.log('editedAircraft$', _aircraft)))
+  ;
 
   readonly loadAircrafts = this.updater((state, _aircrafts: Aircraft[] | null) => ({
     ...state,
