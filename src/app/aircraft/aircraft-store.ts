@@ -3,7 +3,6 @@ import { ComponentStore } from '@ngrx/component-store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Aircraft, AircraftClass } from "./aircraft-definition";
-// import { StarWarsApiService } from '../services/star-wars-api.service';
 import { AircraftService } from './aircraft.service';
 
 export interface AircraftState {
