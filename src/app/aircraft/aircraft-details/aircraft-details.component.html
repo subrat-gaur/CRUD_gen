@@ -11,12 +11,12 @@
   <!-- <mat-divider></mat-divider> -->
   <mat-card-content>
   <div margin-left:8px>
+    <ng-container *ngIf="(DisplayAircraft$ | async); let DisplayAircraft">
     <form class="form-container" [formGroup] = "_AircraftForm">
 
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Aircraft ID</mat-label>
-        <input matInput matTooltip="Enter Aircraft ID"
-               formControlName="AircraftID">
+        <input matInput matTooltip="Enter Aircraft ID" formControlName="AircraftID" [(ngModel)]="DisplayAircraft.id" (ngModelChange)="AircraftEdited()">
         <mat-error *ngIf="_AircraftForm.controls.AircraftID.touched && _AircraftForm.controls.AircraftID">
           <span *ngIf="_AircraftForm.controls.AircraftID.errors">This field is mandatory.</span>
           <!-- <span *ngIf="_AircraftForm.controls.AircraftID.errors.pattern">This field is invalid.</span> -->
@@ -26,7 +26,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Registration Number</mat-label>
         <input matInput matTooltip="Enter Registration Number"
-               formControlName="RegistrationNumber">
+          formControlName="RegistrationNumber"
+          [(ngModel)]="DisplayAircraft.registrationNumber"
+          (ngModelChange)="AircraftEdited()">
         <mat-error *ngIf="_AircraftForm.controls.RegistrationNumber.errors && _AircraftForm.controls.RegistrationNumber">
           <span *ngIf="_AircraftForm.controls.RegistrationNumber.errors">This field is mandatory.</span>
         </mat-error>
@@ -35,7 +37,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>IATA Code</mat-label>
         <input matInput matTooltip="Enter IATA Code"
-               formControlName="TypeIATACode">
+               formControlName="TypeIATACode"
+               [(ngModel)]="DisplayAircraft.typeIATACode"
+               (ngModelChange)="AircraftEdited()">
         <mat-error *ngIf="_AircraftForm.controls.TypeIATACode.errors && _AircraftForm.controls.TypeIATACode">
           <span *ngIf="_AircraftForm.controls.TypeIATACode.errors">This field is mandatory.</span>
         </mat-error>
@@ -44,7 +48,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Aircraft Name</mat-label>
         <input matInput matTooltip="Enter Aircraft Name"
-               formControlName="AircraftName">
+               formControlName="AircraftName"
+               [(ngModel)]="DisplayAircraft.aircraftName"
+               (ngModelChange)="AircraftEdited()">
         <mat-error *ngIf="_AircraftForm.controls.AircraftName.errors && _AircraftForm.controls.AircraftName">
           <span *ngIf="_AircraftForm.controls.AircraftName.errors">This field is mandatory.</span>
         </mat-error>
@@ -53,7 +59,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Ownership Type </mat-label>
         <input matInput matTooltip="Enter Ownership Type"
-               formControlName="ownershipTypeCode">
+               formControlName="ownershipTypeCode"
+               [(ngModel)]="DisplayAircraft.ownershipTypeCode"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.ownershipTypeCode.errors && _AircraftForm.controls.ownershipTypeCode">
                 <span *ngIf="_AircraftForm.controls.ownershipTypeCode.errors">This field is mandatory.</span>
               </mat-error>
@@ -62,16 +70,31 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Aircraft Owner </mat-label>
         <input matInput matTooltip="Enter Aircraft Owner"
-               formControlName="aircraftOwner">
+               formControlName="aircraftOwner"
+               [(ngModel)]="DisplayAircraft.aircraftOwner"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.aircraftOwner.errors && _AircraftForm.controls.aircraftOwner">
                 <span *ngIf="_AircraftForm.controls.aircraftOwner.errors">This field is mandatory.</span>
               </mat-error>
             </mat-form-field>
 
+            <mat-form-field class="form-field" appearance="outline" margin = "5px">
+              <mat-label>Liovery Code </mat-label>
+              <input matInput matTooltip="Enter Liovery Code"
+                     formControlName="liveryCode"
+                     [(ngModel)]="DisplayAircraft.liveryCode"
+                     (ngModelChange)="AircraftEdited()">
+                     <mat-error *ngIf="_AircraftForm.controls.liveryCode.errors && _AircraftForm.controls.liveryCode">
+                      <span *ngIf="_AircraftForm.controls.liveryCode.errors">This field is mandatory.</span>
+                    </mat-error>
+                  </mat-form-field>
+
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Serial Number</mat-label>
         <input matInput matTooltip="Enter Serial Number"
-               formControlName="serialNumber">
+               formControlName="serialNumber"
+               [(ngModel)]="DisplayAircraft.serialNumber"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.serialNumber.errors && _AircraftForm.controls.serialNumber">
                 <span *ngIf="_AircraftForm.controls.serialNumber.errors">This field is mandatory.</span>
               </mat-error>
@@ -80,7 +103,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Engine Manufacturer</mat-label>
         <input matInput matTooltip="Enter Engine Manufacturer"
-               formControlName="engineManufacturer">
+               formControlName="engineManufacturer"
+               [(ngModel)]="DisplayAircraft.engineManufacturer"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.engineManufacturer.errors && _AircraftForm.controls.engineManufacturer">
                 <span *ngIf="_AircraftForm.controls.engineManufacturer.errors">This field is mandatory.</span>
               </mat-error>
@@ -89,7 +114,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Engine Model</mat-label>
         <input matInput matTooltip="Enter Engine Model"
-               formControlName="engineModel">
+               formControlName="engineModel"
+               [(ngModel)]="DisplayAircraft.engineModel"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.engineModel.errors && _AircraftForm.controls.engineModel">
                 <span *ngIf="_AircraftForm.controls.engineModel.errors">This field is mandatory.</span>
               </mat-error>
@@ -98,7 +125,9 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Aircraft Weight</mat-label>
         <input matInput matTooltip="Enter Aircraft Weight"
-               formControlName="AircraftWeight">
+               formControlName="AircraftWeight"
+               [(ngModel)]="DisplayAircraft.weight"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.AircraftWeight.errors && _AircraftForm.controls.AircraftWeight">
                 <span *ngIf="_AircraftForm.controls.AircraftWeight.errors">This field is mandatory.</span>
               </mat-error>
@@ -107,13 +136,16 @@
       <mat-form-field class="form-field" appearance="outline" margin = "5px">
         <mat-label>Remarks</mat-label>
         <input matInput matTooltip="Enter Remarks"
-               formControlName="remarks">
+               formControlName="remarks"
+               [(ngModel)]="DisplayAircraft.remarks"
+               (ngModelChange)="AircraftEdited()">
                <mat-error *ngIf="_AircraftForm.controls.remarks.errors && _AircraftForm.controls.remarks">
                 <span *ngIf="_AircraftForm.controls.remarks.errors">This field is mandatory.</span>
               </mat-error>
             </mat-form-field>
 
     </form>
+    </ng-container>
   </div>
 </mat-card-content>
 </mat-card>

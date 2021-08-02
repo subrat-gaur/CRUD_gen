@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subscriber } from 'rxjs';
-import { Aircraft } from './aircraft-definition';
+import { Aircraft, AircraftClass } from './aircraft-definition';
 
 const baseURL = 'http://localhost:8080/aircrafts';
 
@@ -34,6 +34,9 @@ export class AircraftService {
     return this.httpClient.put(`${baseURL}/${id}`, data);
   }
 
+  SaveAircraft(id: any, data: AircraftClass |undefined): Observable<any> {
+    return this.httpClient.put(`${baseURL}/${id}`, data);
+  }
   deleteAircraft(id: any): Observable<any> {
     return this.httpClient.delete(`${baseURL}/${id}`);
   }

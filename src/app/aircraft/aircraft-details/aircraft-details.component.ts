@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, SimpleChanges } from '@angular/core';
 import { Aircraft, AircraftClass} from '../aircraft-definition';
 import { FormControl,FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AircraftService } from '../aircraft.service';
@@ -16,9 +16,8 @@ export class AircraftDetailsComponent implements OnInit {
                 private fb : FormBuilder
     ) { }
 
-  DisplayedAircraftId$ = this._AircraftComponentStore.SelectAircraftId;
+  DisplayedAircraftId$ = this._AircraftComponentStore.editedAircraft$;
   DisplayAircraft$ = this._AircraftComponentStore.editedAircraft$;
-
 
   _AircraftForm = this.fb.group({
     AircraftID : [null, [Validators.required]],
@@ -39,4 +38,7 @@ export class AircraftDetailsComponent implements OnInit {
 
   }
 
+  AircraftEdited() {
+    this._AircraftComponentStore.setEditedAircraft(this.DisplayAircraft$);
+  }
 }
