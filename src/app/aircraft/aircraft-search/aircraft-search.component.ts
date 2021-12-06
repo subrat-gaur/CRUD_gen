@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { observable } from 'rxjs';
 import { Aircraft, AircraftSearch } from '../aircraft-definition';
 import { AircraftComponentStore } from '../aircraft-store';
@@ -16,6 +17,7 @@ export class AircraftSearchComponent implements OnInit {
 
   constructor (
               private aircraftService: AircraftService,
+              private fb : FormBuilder,
               private readonly _aircraftComponentStore : AircraftComponentStore
               ) {
 
@@ -32,4 +34,18 @@ export class AircraftSearchComponent implements OnInit {
 
   }
 
+  _AircraftSearchForm = this.fb.group({
+
+    registrationNumber : [null],
+    liveryCode:[null],
+    serialNumber:[null],
+  });
+
+  SearchAircraft() {
+    console.log(this._AircraftSearchForm.value);
+    const SearchFormValues  = this._AircraftSearchForm.value as AircraftSearch;
+    this._aircraftComponentStore.loadAircrafts((this.aircraftService.searchAircrafts(SearchFormValues ))) ;
+  }
 }
+
+

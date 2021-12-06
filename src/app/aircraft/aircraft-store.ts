@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { Aircraft, AircraftClass } from "./aircraft-definition";
+import { Aircraft  } from "./aircraft-definition";
 import { AircraftService } from './aircraft.service';
 
 export interface AircraftState {

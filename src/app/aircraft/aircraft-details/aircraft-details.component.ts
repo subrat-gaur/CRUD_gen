@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output, SimpleChanges } from '@angular/core';
-import { Aircraft, AircraftClass} from '../aircraft-definition';
 import { FormControl,FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AircraftService } from '../aircraft.service';
 import { AircraftComponentStore } from '../aircraft-store';

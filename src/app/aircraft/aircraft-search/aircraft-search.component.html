@@ -4,15 +4,34 @@
   </mat-card-header>
   <mat-card-content>
     <div margin="5px">
-      <form >
-        <ng-container *ngFor="let column of columnsToDisplay">
-          <mat-form-field appearance="fill">
+      <form class="form-container" [formGroup] = "_AircraftSearchForm">
+        <ng-container >
+          <!-- <mat-form-field appearance="fill">
             <mat-label>{{column}}</mat-label>
             <input matInput matTooltip="Enter {{column}}">
+          </mat-form-field> -->
+
+          <mat-form-field class="form-field" appearance="outline" margin = "5px">
+            <mat-label>Registration Number</mat-label>
+            <input matInput matTooltip="Enter Registration Number" formControlName="registrationNumber">
           </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline" margin = "5px">
+            <mat-label>Livery Code</mat-label>
+            <input matInput matTooltip="Enter Livery Code" formControlName="liveryCode" >
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline" margin = "5px">
+            <mat-label>serial Number</mat-label>
+            <input matInput matTooltip="Enter seria lNumber" formControlName="serialNumber" >
+          </mat-form-field>
+
         </ng-container>
+        <button mat-raised-button color="primary" margin = "15px" (click)="SearchAircraft()">Search</button>
       </form>
-      <button mat-raised-button color="primary" margin-left = "5px">Search</button>
+
     </div>
+    <!-- <p>Form Value: {{ _AircraftSearchForm.value | json }}</p> -->
   </mat-card-content>
 </mat-card>
+

@@ -17,6 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { AircraftComponentStore } from './aircraft-store';
+import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     CdkTableModule,
     MatTableModule,
-    MatFormFieldModule, MatInputModule, MatTooltipModule, MatButtonModule,MatDividerModule,
+    MatFormFieldModule, MatInputModule, MatTooltipModule, MatButtonModule,MatDividerModule, MatTabsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     AircraftRoutingModule
